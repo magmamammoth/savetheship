@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://dg5mvore6qxc7"]
-
-[node name="asteroidmedium" type="Area2D" unique_id=459337724]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1825372791]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2100583830]
