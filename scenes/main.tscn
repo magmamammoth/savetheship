@@ -3,16 +3,21 @@
 [ext_resource type="PackedScene" uid="uid://dg5mvore6qxc7" path="res://scenes/asteroidbig.tscn" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://cxrocw6quk70a" path="res://scenes/mouse.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://dmpfcu7tvyx2u" path="res://scenes/background.tscn" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://337p46kj1gll" path="res://scenes/player.tscn" id="4_jyhfs"]
 
 [node name="main" type="Node2D" unique_id=949231366]
 
 [node name="background" parent="." unique_id=1024664418 instance=ExtResource("1_sugp2")]
-offset_left = -99.0
-offset_top = 5.0
-offset_right = 701.0
-offset_bottom = 1167.0
+offset_left = 391.0
+offset_top = -52.0
+offset_right = 1789.0
+offset_bottom = 892.0
 
 [node name="asteroidbig" parent="." unique_id=459337724 instance=ExtResource("1_0wfyh")]
-position = Vector2(756, 250)
+position = Vector2(655, 274)
 
 [node name="mouse" parent="." unique_id=2014693501 instance=ExtResource("1_o5qli")]
+
+[node name="player" parent="." unique_id=1632449626 instance=ExtResource("4_jyhfs")]
+position = Vector2(578, 658)
+scale = Vector2(3, 3)
