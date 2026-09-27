@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://btrg2tsfdmdqk"]
+
+[ext_resource type="Script" uid="uid://bl86h17uforj6" path="res://scripts/cursor.gd" id="1_ndevg"]
+[ext_resource type="Texture2D" uid="uid://f6fa0tonbukk" path="res://assests/kenney_crosshairPack/PNG/White/crosshair132.png" id="1_s0nli"]
+[ext_resource type="Texture2D" uid="uid://ctguu24e6fky2" path="res://assests/red_cursor_132.png" id="2_ndevg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5qf0"]
+atlas = ExtResource("1_s0nli")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pey64"]
+atlas = ExtResource("2_ndevg")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d7ugn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5qf0")
+}],
+"loop": 1,
+"name": &"normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pey64")
+}],
+"loop": 1,
+"name": &"red",
+"speed": 5.0
+}]
+
+[node name="cursor" type="Node" unique_id=1234538152]
+script = ExtResource("1_ndevg")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=970812286]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1379130507]
+sprite_frames = SubResource("SpriteFrames_d7ugn")
+animation = &"normal"

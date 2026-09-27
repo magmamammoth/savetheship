@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cxrocw6quk70a"]
+
+[ext_resource type="Script" uid="uid://m5n8cb02y7in" path="res://scripts/mouse.gd" id="1_5v7j2"]
+[ext_resource type="Texture2D" uid="uid://cl3ds1xmcr383" path="res://assests/kenney_crosshairPack/mouse_sheet.png" id="1_ouscy"]
+[ext_resource type="Texture2D" uid="uid://ctguu24e6fky2" path="res://assests/red_cursor_132.png" id="3_xa71f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iog6k"]
+atlas = ExtResource("1_ouscy")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dexx5"]
+atlas = ExtResource("3_xa71f")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sghoa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iog6k")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dexx5")
+}],
+"loop": 1,
+"name": &"target",
+"speed": 5.0
+}]
+
+[node name="mouse" type="Sprite2D" unique_id=2014693501]
+texture = ExtResource("1_ouscy")
+hframes = 2
+script = ExtResource("1_5v7j2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=917529546]
+sprite_frames = SubResource("SpriteFrames_sghoa")
+animation = &"target"
