@@ -1,6 +1,7 @@
 extends Sprite2D
 
 @onready var animate: AnimatedSprite2D = $AnimatedSprite2D
+@onready var _fire: AudioStreamPlayer = $fire
 
 
 
@@ -13,5 +14,6 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("fire"):
 		animate.play("target")
+		_fire.play()
 	elif Input.is_action_just_released("fire"):
 		animate.play("default")

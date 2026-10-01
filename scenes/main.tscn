@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://dmpfcu7tvyx2u" path="res://scenes/background.tscn" id="1_sugp2"]
 [ext_resource type="Script" uid="uid://bvsil7bha0boq" path="res://scripts/main.gd" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://337p46kj1gll" path="res://scenes/player.tscn" id="4_jyhfs"]
+[ext_resource type="AudioStream" uid="uid://8t1supi0j080" path="res://assests/kenney_space-shooter-remastered/Bonus/sfx_laser2.ogg" id="6_o6xl0"]
+[ext_resource type="AudioStream" uid="uid://b4q5hku476aj8" path="res://assests/kenney_space-shooter-remastered/Bonus/cosmic-scapes-relaxing-smoothed-brown-noise-294838.mp3" id="7_tipki"]
 
 [sub_resource type="Curve2D" id="Curve2D_56af7"]
 _data = {
@@ -43,4 +45,22 @@ scale = Vector2(3, 3)
 [node name="mouse" parent="." unique_id=2014693501 instance=ExtResource("1_o5qli")]
 z_index = 10
 
+[node name="fire" type="AudioStreamPlayer" parent="mouse" unique_id=454030120]
+stream = ExtResource("6_o6xl0")
+bus = &"shoot"
+
+[node name="bg" type="AudioStreamPlayer" parent="." unique_id=1057781868]
+stream = ExtResource("7_tipki")
+autoplay = true
+
+[node name="speed" type="Timer" parent="." unique_id=20453446]
+wait_time = 30.0
+autostart = true
+
+[node name="speed2" type="Timer" parent="." unique_id=106592989]
+wait_time = 60.0
+autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="speed" to="." method="_on_speed_timeout"]
+[connection signal="timeout" from="speed2" to="." method="_on_speed_2_timeout"]

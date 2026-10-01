@@ -3,6 +3,7 @@ extends Node2D
 @onready var follow_path: PathFollow2D = $spawnpath/PathFollow2D
 @onready var player: CharacterBody2D = $player
 @export var asteroidbig: PackedScene
+@onready var timer: Timer = $Timer
 
 
 
@@ -38,3 +39,14 @@ func _on_timer_timeout() -> void:
 	asteroid.rotation = asteroid.direction.angle()
 	
 	add_child(asteroid)
+
+
+
+
+
+func _on_speed_timeout() -> void:
+	timer.wait_time = 1
+
+
+func _on_speed_2_timeout() -> void:
+	timer.wait_time = 0.5
