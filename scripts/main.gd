@@ -7,10 +7,10 @@ extends Node2D
 
 
 func _on_timer_timeout() -> void:
-	print("timeout went off")
+	#print("timeout went off")
 	
 	if not asteroidbig:
-		print("asteroid missing")
+		#print("asteroid missing")
 		return
 	
 	#random value and x,y of asteroid & target_pos var

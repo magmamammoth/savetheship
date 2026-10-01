@@ -21,6 +21,7 @@ offset_left = 391.0
 offset_top = -52.0
 offset_right = 1789.0
 offset_bottom = 892.0
+mouse_filter = 1
 
 [node name="spawnpath" type="Path2D" parent="." unique_id=1073697258]
 position = Vector2(-6.3238525, -4.4203796)

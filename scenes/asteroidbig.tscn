@@ -61,6 +61,7 @@ animations = [{
 radius = 41.0
 
 [node name="asteroidbig" type="Area2D" unique_id=459337724]
+disable_mode = 2
 script = ExtResource("1_pdstm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1825372791]
