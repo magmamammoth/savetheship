@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://bs6tff8dk4fcy"]
+
+[ext_resource type="PackedScene" uid="uid://dg5mvore6qxc7" path="res://scenes/asteroidbig.tscn" id="1_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://cxrocw6quk70a" path="res://scenes/mouse.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://dmpfcu7tvyx2u" path="res://scenes/background.tscn" id="1_sugp2"]
+[ext_resource type="Script" uid="uid://bvsil7bha0boq" path="res://scripts/main.gd" id="1_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://337p46kj1gll" path="res://scenes/player.tscn" id="4_jyhfs"]
+[ext_resource type="AudioStream" uid="uid://8t1supi0j080" path="res://assests/kenney_space-shooter-remastered/Bonus/sfx_laser2.ogg" id="6_o6xl0"]
+[ext_resource type="AudioStream" uid="uid://b4q5hku476aj8" path="res://assests/kenney_space-shooter-remastered/Bonus/cosmic-scapes-relaxing-smoothed-brown-noise-294838.mp3" id="7_tipki"]
+[ext_resource type="Script" uid="uid://0rwvqt52pa5x" path="res://scripts/scorelabel.gd" id="8_tipki"]
+
+[sub_resource type="Curve2D" id="Curve2D_56af7"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -104, -109, 0, 0, 0, 0, 1321, -98, 0, 0, 0, 0, 1329, 883, 0, 0, 0, 0, -184, 902, 0, 0, 0, 0, -104, -109)
+}
+point_count = 5
+
+[node name="main" type="Node2D" unique_id=949231366]
+script = ExtResource("1_tbgi4")
+asteroidbig = ExtResource("1_0wfyh")
+
+[node name="background" parent="." unique_id=1024664418 instance=ExtResource("1_sugp2")]
+offset_left = 391.0
+offset_top = -52.0
+offset_right = 1789.0
+offset_bottom = 892.0
+mouse_filter = 1
+
+[node name="spawnpath" type="Path2D" parent="." unique_id=1073697258]
+position = Vector2(-6.3238525, -4.4203796)
+scale = Vector2(0.9656312, 0.9594461)
+curve = SubResource("Curve2D_56af7")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="spawnpath" unique_id=2031545]
+position = Vector2(-104, -109)
+rotation = 0.007719145
+
+[node name="Timer" type="Timer" parent="." unique_id=510583332]
+wait_time = 1.5
+autostart = true
+
+[node name="player" parent="." unique_id=1632449626 instance=ExtResource("4_jyhfs")]
+position = Vector2(578, 658)
+scale = Vector2(3, 3)
+
+[node name="mouse" parent="." unique_id=2014693501 instance=ExtResource("1_o5qli")]
+z_index = 10
+
+[node name="fire" type="AudioStreamPlayer" parent="mouse" unique_id=454030120]
+stream = ExtResource("6_o6xl0")
+bus = &"shoot"
+
+[node name="bg" type="AudioStreamPlayer" parent="." unique_id=1057781868]
+stream = ExtResource("7_tipki")
+autoplay = true
+
+[node name="speed" type="Timer" parent="." unique_id=20453446]
+wait_time = 30.0
+autostart = true
+
+[node name="speed2" type="Timer" parent="." unique_id=106592989]
+wait_time = 60.0
+autostart = true
+
+[node name="UIscore" type="Control" parent="." unique_id=1547784865]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 556.0
+offset_top = 37.0
+offset_right = 596.0
+offset_bottom = 77.0
+
+[node name="scorelabel" type="Label" parent="UIscore" unique_id=201363457]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 32
+text = "0"
+script = ExtResource("8_tipki")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="speed" to="." method="_on_speed_timeout"]
+[connection signal="timeout" from="speed2" to="." method="_on_speed_2_timeout"]

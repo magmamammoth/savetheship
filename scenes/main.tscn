@@ -5,8 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://dmpfcu7tvyx2u" path="res://scenes/background.tscn" id="1_sugp2"]
 [ext_resource type="Script" uid="uid://bvsil7bha0boq" path="res://scripts/main.gd" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://337p46kj1gll" path="res://scenes/player.tscn" id="4_jyhfs"]
+[ext_resource type="AudioStream" uid="uid://dmlxhokwo5m1t" path="res://assests/kenney_space-shooter-remastered/Bonus/sfx_twoTone.ogg" id="5_choun"]
 [ext_resource type="AudioStream" uid="uid://8t1supi0j080" path="res://assests/kenney_space-shooter-remastered/Bonus/sfx_laser2.ogg" id="6_o6xl0"]
 [ext_resource type="AudioStream" uid="uid://b4q5hku476aj8" path="res://assests/kenney_space-shooter-remastered/Bonus/cosmic-scapes-relaxing-smoothed-brown-noise-294838.mp3" id="7_tipki"]
+[ext_resource type="FontFile" uid="uid://wegd1d0jcc4" path="res://assests/aurebesh-english-font/AurebeshEnglishRegular-rjeO.ttf" id="8_85g3d"]
+[ext_resource type="Script" uid="uid://0rwvqt52pa5x" path="res://scripts/scorelabel.gd" id="8_tipki"]
 
 [sub_resource type="Curve2D" id="Curve2D_56af7"]
 _data = {
@@ -42,6 +45,10 @@ autostart = true
 position = Vector2(578, 658)
 scale = Vector2(3, 3)
 
+[node name="out" type="AudioStreamPlayer" parent="player" unique_id=844230023]
+stream = ExtResource("5_choun")
+volume_db = 1.94
+
 [node name="mouse" parent="." unique_id=2014693501 instance=ExtResource("1_o5qli")]
 z_index = 10
 
@@ -60,6 +67,24 @@ autostart = true
 [node name="speed2" type="Timer" parent="." unique_id=106592989]
 wait_time = 60.0
 autostart = true
+
+[node name="UIscore" type="Control" parent="." unique_id=1547784865]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 556.0
+offset_top = 37.0
+offset_right = 596.0
+offset_bottom = 77.0
+
+[node name="scorelabel" type="Label" parent="UIscore" unique_id=201363457]
+layout_mode = 0
+offset_left = 5.0
+offset_right = 45.0
+offset_bottom = 30.0
+theme_override_fonts/font = ExtResource("8_85g3d")
+theme_override_font_sizes/font_size = 32
+text = "0"
+script = ExtResource("8_tipki")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="speed" to="." method="_on_speed_timeout"]
