@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://caivkbfhbj7d0"]
+
+[ext_resource type="Script" uid="uid://sl4o5pyhudve" path="res://scripts/endpg.gd" id="1_li77l"]
+[ext_resource type="Texture2D" uid="uid://biqq284v3gid3" path="res://assests/inverted.png" id="1_vu7yx"]
+[ext_resource type="FontFile" uid="uid://dgx0jst2yhsp8" path="res://assests/kenney_space-shooter-remastered/Bonus/kenvector_future.ttf" id="2_li77l"]
+[ext_resource type="FontFile" uid="uid://fs3265jssw0s" path="res://assests/kenney_space-shooter-remastered/Bonus/kenvector_future_thin.ttf" id="3_6lf3d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sghoa"]
+
+[node name="Control" type="Control" unique_id=2002600004]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_li77l")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1517313233]
+layout_mode = 0
+offset_left = -43.0
+offset_top = -34.0
+offset_right = 1200.0
+offset_bottom = 754.0
+texture = ExtResource("1_vu7yx")
+
+[node name="Button" type="Button" parent="." unique_id=2139432188]
+layout_mode = 0
+offset_left = 362.0
+offset_top = 330.0
+offset_right = 792.0
+offset_bottom = 395.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sghoa")
+
+[node name="Label" type="Label" parent="." unique_id=701545872]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -279.0
+offset_top = -166.5
+offset_right = 279.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_li77l")
+theme_override_font_sizes/font_size = 100
+text = "YOU DIED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=1402910298]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -203.0
+offset_top = -37.0
+offset_right = 203.0
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_6lf3d")
+theme_override_font_sizes/font_size = 65
+text = "PLAY AGAIN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
